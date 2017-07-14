@@ -1,0 +1,56 @@
+{% extends "home/topbar.html" %}
+
+{% block content %}
+
+<h1>PO {{ pos.num }}</h1>
+<h1><small><a href='{% url "vendor:vendor_detail" pos.supplier.id %}'>{{ pos.supplier.name }}</a></small></h1>
+<h4><small>Created: {{ pos.created }} Modified: {{ pos.modified }} Viewed: {{ pos.viewed }}</small></h4>
+
+<div class="row">
+{% if pos.tax == True %}
+  <div class="col-md-4">
+    Tax: {{  pos.tax_amt }}
+  </div>
+{% endif %}
+  <div class="col-md-4">
+    Subtotal: {{ pos.subtotal }}
+  </div>
+  <div class="col-md-4">
+    Total: {{ pos.total }}
+  </div>
+</div>
+
+<table class="table">
+  <tr>
+    <th>Description</th>
+    <th>Item Number</th>
+    <th>Publisher</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Quantity</th>
+    <th>Unit</th>
+    <th>Unit Cost</th>
+    <th>Line Total</th>
+    <th></th>
+  </tr>
+  {% for ln in lines %}
+  <tr>
+    <td>{{ ln.desc }}</td>
+    <td>{{ ln.item_num }}</td>
+    <td>{{ ln.publisher.name }}</td>
+    <td>{{ ln.start_date }}</td>
+    <td>{{ ln.exp_date }}</td>
+    <td>{{ ln.qty }}</td>
+    <td>{{ ln.uom }}</td>
+    <td>{{ ln.unit_cost }}</td>
+    <td>{{ ln.line_total }}</td>
+    <td>Edit</td>
+  </tr>
+  {% empty %}
+  <tr>
+    <td>No Lines in PO</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock content %}

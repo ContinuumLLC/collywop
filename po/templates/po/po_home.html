@@ -1,0 +1,31 @@
+{% extends "home/topbar.html" %}
+
+{% block content %}
+
+<h1>PO Management</h1>
+
+<p>buttons</p>
+
+<table>
+  <tr>
+    <th>PO</th>
+    <th>Vendor</th>
+    <th>Created</th>
+    <th>Amount</th>
+  </tr>
+  {% for po in pos %}
+  <tr>
+    <td><a href="{% url 'po:po_detail' po.id %}">{{po.num}}</a></td>
+    <td><a href="{% url 'vendor:vendor_detail' po.supplier.id %}">{{po.supplier.name}}</a></td>
+    <td>{{po.created}}</td>
+    <td>{{po.total}}</td>
+    <td>Edit Button</td>
+  </tr>
+  {% empty %}
+  <tr>
+    <td>You have not set up any vendors!</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock content %}

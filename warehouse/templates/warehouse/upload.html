@@ -1,0 +1,14 @@
+{% extends 'home/topbar.html' %}
+{% load bootstrap3 %}
+{% block content %}
+
+<form action="{% url 'w:importactuals' %}" method="post">
+  {% csrf_token %}
+  <label for="file">Actuals Template to Upload: </label>
+  <input id="file" type="file" name="file">
+  {% buttons %}
+  <button type="submit">Upload</button>
+  {% endbuttons %}
+</form>
+
+{% endblock content %}

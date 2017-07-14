@@ -1,0 +1,51 @@
+{% extends 'home/topbar.html' %}
+{% load bootstrap3 %}
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-2">
+    <a class="btn btn-default" href="{% url 'w:domains_update' %}" role="button">Refresh Data <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
+  </div>
+  <div class="col-md-9">
+    {% if request.user.is_superuser %}
+    <form class="form" action="{% url 'w:domains' %}" method="POST">
+      {% csrf_token %}
+      {% bootstrap_form form layout="inline" %}
+  </div>
+  <div class="col-md-1">
+      {% buttons %}
+      <input type="submit" value="Add" class="btn btn-primary"/>
+      {% endbuttons %}
+    </form>
+    {% endif %}
+  </div>
+</div>
+<p> </p>
+<table class="table">
+  <tr>
+    <th>Domain</th>
+    <th>Registered Under</th>
+    <th>Expiration Date</th>
+    <th>Registrar</th>
+    <th>Nameservers</th>
+    <th></th>
+  </tr>
+{% for d in dlist %}
+  <tr>
+    <td>{{d.name}}</td>
+    <td>{{d.comp}}</td>
+    <td>{{d.exp}}</td>
+    <td>{{d.reg}}</td>
+    <td>{{d.nameserver}}</td>
+    <td class="text-right">
+      {% if request.user.is_superuser %}
+      <a class="btn btn-default" href="{% url 'w:del_domain' d.id %}" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+      {% else %}
+      <a class="btn btn-default disabled" href="" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+      {% endif %}
+    </td>
+  </tr>
+{% endfor %}
+</table>
+</div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+col_env/
+imports/
+scripts/
+proc_env/
+workflows/
+uploads/
+acc_keys.py
+*.csv
+shittoremember
+how to recover server
+__pycache__

@@ -1,0 +1,18 @@
+{% extends 'home/topbar.html' %}
+
+{% block content %}
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Limit</th>
+    <th>Actual Spend</th>
+    <th>Forecasted Spend</th>
+  </tr>
+  <tr>
+    <td>{{name}}</td>
+    <td>${{limit}}</td>
+    <td>${{actual}}</td>
+    <td>${{forc}}</td>
+  </tr>
+</table>
+{% endblock content %}
