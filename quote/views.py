@@ -16,6 +16,8 @@ def quotes_detail(request, q_id):
     context = {'q': q, 'l': l}
     return render(request, 'quote/quotes_detail.html', context)
 
+
+
 def project_home(request):
     p = Project.objects.order_by('-created')
     p = p[:10]
