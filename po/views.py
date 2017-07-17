@@ -15,3 +15,7 @@ def po_detail(request, po_id):
     lines = Line_PO.objects.filter(po=pos)
     context = {'pos': pos, 'lines':lines}
     return render(request, 'po/po_detail.html', context)
+
+def test():
+    pass
+    
