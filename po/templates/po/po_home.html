@@ -3,15 +3,20 @@
 {% block content %}
 
 <h1>PO Management</h1>
-
-<p>buttons</p>
-
-<table>
+<p> </p>
+<hr>
+<ul class="nav nav-pills">
+  <li><a href="{% url 'po:add_po' %}" class="btn btn-default">Add Vendor <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
+</ul>
+<hr>
+<h3>Recent POs</h3>
+<table class="table">
   <tr>
     <th>PO</th>
     <th>Vendor</th>
     <th>Created</th>
     <th>Amount</th>
+    <th></th>
   </tr>
   {% for po in pos %}
   <tr>
@@ -19,11 +24,17 @@
     <td><a href="{% url 'vendor:vendor_detail' po.supplier.id %}">{{po.supplier.name}}</a></td>
     <td>{{po.created}}</td>
     <td>{{po.total}}</td>
-    <td>Edit Button</td>
+    <td>
+      <a href="{% url 'po:edit_po' po.id %}" class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+    </td>
   </tr>
   {% empty %}
   <tr>
-    <td>You have not set up any vendors!</td>
+    <td>You have not set up any POs!</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
   {% endfor %}
 </table>

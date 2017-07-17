@@ -19,6 +19,8 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.po_home, name='po_home'),
+    url(r'^add-po/$', views.add_po, name='add_po'),
+    url(r'^edit-po/(?P<po_id>\d+)/$', views.edit_po, name='edit_po'),
     url(r'^(?P<po_id>\d+)/$', views.po_detail, name='po_detail'),
+    url(r'^$', views.po_home, name='po_home'),
 ]

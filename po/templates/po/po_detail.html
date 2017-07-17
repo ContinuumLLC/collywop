@@ -2,24 +2,32 @@
 
 {% block content %}
 
-<h1>PO {{ pos.num }}</h1>
-<h1><small><a href='{% url "vendor:vendor_detail" pos.supplier.id %}'>{{ pos.supplier.name }}</a></small></h1>
+<h1><a href='{% url "vendor:vendor_detail" pos.supplier.id %}'>{{ pos.supplier.name }}</a></h1>
+<h1><small>PO Number: {{ pos.num }}</small></h1>
+<hr>
 <h4><small>Created: {{ pos.created }} Modified: {{ pos.modified }} Viewed: {{ pos.viewed }}</small></h4>
-
-<div class="row">
-{% if pos.tax == True %}
-  <div class="col-md-4">
-    Tax: {{  pos.tax_amt }}
-  </div>
-{% endif %}
+<hr>
+<h3><small>
+<div class="row text-center">
+  {% if pos.tax == True %}
   <div class="col-md-4">
     Subtotal: {{ pos.subtotal }}
   </div>
+  {% endif %}
+  {% if pos.tax == True %}
+    <div class="col-md-4">
+      Tax: {{  pos.tax_amt }}
+    </div>
+  {% endif %}
+  {% if pos.tax == True %}
   <div class="col-md-4">
+  {% else %}
+  <div class="col-md-12">
+  {% endif %}
     Total: {{ pos.total }}
   </div>
 </div>
-
+</small></h3>
 <table class="table">
   <tr>
     <th>Description</th>
