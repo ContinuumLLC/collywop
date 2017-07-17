@@ -3,10 +3,10 @@
 
 {% block content %}
 {% if mode == 'add' %}
-<form class="form" action="{% url 'po:add_po' %}" method="post">
+<form class="form" action="{% url 'po:add_line' po_id %}" method="post">
 {% endif %}
 {% if mode == 'edit' %}
-<form class="form" action="{% url 'po:edit_po' po_id %}" method="post">
+<form class="form" action="{% url 'po:edit_line' ln_id %}" method="post">
 {% endif %}
   {% csrf_token %}
   {% bootstrap_form form %}
