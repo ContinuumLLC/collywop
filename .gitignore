@@ -10,3 +10,4 @@ shittoremember
 how to recover server
 __pycache__
 collywop.sock
+*.sqlite3

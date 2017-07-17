@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Upload(modles.Model):
+class Upload(models.Model):
     fil = models.FileField(upload_to="data/")
 
 class AWS_files(models.Model):

@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     #3rd party apps
     'bootstrap3',
     'django_extensions',
-    'djcelery',
+    #'djcelery',
     #'django_celery_beat',
 
 ]
@@ -102,7 +102,7 @@ DATABASES = {
     }
 }
 
-if BASE_DIR == 'C:\Users\eric.oak\OneDrive - Continuum Managed Services LLC\Proc':
+if BASE_DIR == 'C:\\Users\\eric.oak\\OneDrive - Continuum Managed Services LLC\\Proc':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
