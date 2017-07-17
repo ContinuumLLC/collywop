@@ -47,7 +47,7 @@
             <li><a href="{% url 'vendor:vendor_home' %}">Vendors</a></li>
             <li><a href="{% url 'quote:quotes_home' %}">Quotes</a></li>
             <li><a href="{% url 'po:po_home' %}">PO's</a></li>
-            <li><a href="{% url 'invoice:invoice_home' %}">Invoices</a></li>
+            <li><a href="">Invoices</a></li>
             <li><a href="http://10.1.102.103">Reports</a></li>
             {% if request.user.is_superuser %}
             <li><a href="">Logs</a></li>
@@ -56,7 +56,7 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            
+
             {% if user.is_authenticated %}
               <li>
                 <a>Hello, {{ user.first_name }}.</a></li>
