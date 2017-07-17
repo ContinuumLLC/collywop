@@ -9,20 +9,24 @@ from vendor.models import Supplier, Publisher
 from quote.models import Quote
 
 class Cost_Center(models.Model):
-    name = models.TextField()
-    owner = models.ForeignKey(User)
+    name = models.CharField(max_length=140)
+    owner = models.ForeignKey(User, models.SET_NULL, null=True)
+    dept_code = models.IntegerField(null=True)
+    def __str__(self):
+        return self.name
+
 
 class PO(models.Model):
-    supplier = models.ForeignKey(Supplier)
+    supplier = models.ForeignKey(Supplier, models.SET_NULL, null=True)
     num = models.IntegerField(unique=True)
     issued = models.DateTimeField(null=True, blank=True)
     blanket = models.BooleanField(default=False)
-    auth = models.ForeignKey(User, null=True, blank=True)
+    auth = models.ForeignKey(User, models.SET_NULL, null=True, blank=True)
     status = models.TextField() #make this a dropdown?
     comments = models.TextField(null=True, blank=True)
     #add tax handling
     tax = models.BooleanField(default=False)
-    tax_amt = models.DecimalField(max_digits=5, decimal_places=5, null=True, blank=True)
+    tax_amt = models.DecimalField(max_digits=19, decimal_places=2, null=True, blank=True)
     subtotal = models.DecimalField(max_digits=19, decimal_places=2, null=True, blank=True)
     total = models.DecimalField(max_digits=19, decimal_places=2, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
