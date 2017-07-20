@@ -21,7 +21,7 @@ def vendor_detail(request, v_id):
     v.viewed = timezone.now()
     v.save()
     c = Contact.objects.filter(id=v_id)
-    po = PO.objects.filter(id=v_id)
+    po = PO.objects.filter(supplier=v)
     context = {'v': v, 'c':c, 'po':po}
     return render(request, 'vendor/vendor_detail.html', context)
 

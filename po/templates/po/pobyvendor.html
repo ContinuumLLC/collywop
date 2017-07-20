@@ -3,14 +3,13 @@
 
 {% block content %}
 
-<h1>PO Management</h1>
+<h1>{{v.name}} PO's</h1>
 <p> </p>
 <hr>
 <ul class="nav nav-pills">
-  <li><a href="{% url 'po:add_po' %}" class="btn btn-default">Add PO <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
+  <li><a href="{% url 'po:add_po_to_vendor' v.id %}" class="btn btn-default">Add PO <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
 </ul>
 <hr>
-<h3>Recent POs</h3>
 <table class="table">
   <tr>
     <th>PO</th>
@@ -31,7 +30,7 @@
   </tr>
   {% empty %}
   <tr>
-    <td>You have not set up any POs!</td>
+    <td>This vendor has no POs!</td>
     <td></td>
     <td></td>
     <td></td>

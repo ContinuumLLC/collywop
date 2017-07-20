@@ -1,5 +1,5 @@
 {% load bootstrap3 %}
-
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,7 +39,7 @@
                 <li><a href="">New Publisher</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="">New Quote</a></li>
-                <li><a href="">New PO</a></li>
+                <li><a href="{% url 'po:add_po' %}">New PO</a></li>
                 <li><a href="">New Invoice</a></li>
               </ul>
             </li>
