@@ -25,8 +25,8 @@ class LineForm(forms.Form):
     quantity = forms.IntegerField()
     uom = forms.CharField(strip=True)
     unit_cost = forms.DecimalField(max_digits=19, decimal_places=2)
-    start_date = forms.DateField()
-    exp_date = forms.DateField()
+    start_date = forms.DateField(required=False)
+    exp_date = forms.DateField(required=False)
     cost_center = forms.ModelChoiceField(queryset=Cost_Center.objects.all(), required=False)
     budget_code = forms.DecimalField(max_digits=6, decimal_places=3, required=False)
 
