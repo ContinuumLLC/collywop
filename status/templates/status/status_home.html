@@ -1,0 +1,9 @@
+{% extends 'home/topbar.html' %}
+
+{% block content %}
+
+{% for key, value in site_status.items %}
+<p>{{key}} is {{value}}</p>
+{% endfor %}
+
+{% endblock content %}
