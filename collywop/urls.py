@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^po/', include('po.urls', namespace='po')),
     url(r'^quote/', include('quote.urls', namespace='quote')),
     url(r'^vendor/', include('vendor.urls', namespace='vendor')),
+    url(r'^status/', include('status.urls', namespace='status')),
     url(r'^w/', include('warehouse.urls', namespace='w')),
     url(r'', include('home.urls', namespace='home')),
 ]

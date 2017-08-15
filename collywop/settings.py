@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'vendor',
     'home',
     'warehouse',
+    'status',
     #'scripts',
     #3rd party apps
     'bootstrap3',
