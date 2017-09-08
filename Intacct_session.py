@@ -70,5 +70,3 @@ def create_session():
         print("Uh oh, something is wrong")
         print(type(inst))
         print(inst.args)
-
-create_session()

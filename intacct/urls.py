@@ -16,15 +16,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from . import views
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^adm/', include('adm.urls', namespace='adm')),
-    url(r'^invoice/', include('invoice.urls', namespace='invoice')),
-    url(r'^po/', include('po.urls', namespace='po')),
-    url(r'^quote/', include('quote.urls', namespace='quote')),
-    url(r'^vendor/', include('vendor.urls', namespace='vendor')),
-    url(r'^status/', include('status.urls', namespace='status')),
-    url(r'^w/', include('warehouse.urls', namespace='w')),
-    url(r'^intacct/', include('intacct.urls', namespace='intacct')),
-    url(r'', include('home.urls', namespace='home')),
+    url(r'^update-session/$', views.update_session, name='update_session'),
+    url(r'^vendors/$', views.vendors, name='vendors'),
 ]
