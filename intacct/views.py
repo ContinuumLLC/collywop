@@ -53,7 +53,7 @@ def vendors(request):
     ses = s[0].sessionid
 
     sessionid = newdoc.createElement('sessionid')
-    authentication.appendChild(authentication).appendChild(newdoc.createTextNode(ses))
+    authentication.appendChild(sessionid).appendChild(newdoc.createTextNode(ses))
 
     content = newdoc.createElement('content')
     operation.appendChild(content)
@@ -80,13 +80,13 @@ def vendors(request):
     print(request.toprettyxml())
     #print(request)
     # Post the request
-    result = XMLRequestClient.post(request)
-
+    #result = XMLRequestClient.post(request)
+    '''
     for vendor in result.getElementsByTagName('vendor'):
         for tag in vendor.getElementsByTagName('DISPLAYCONTACT.PRINTAS'):
             ven = tag[0].firstChild.nodeValue
             vens.append(ven)
-
+    '''
 
     #paginate
     #finish pagination

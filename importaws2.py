@@ -1,5 +1,6 @@
 import boto3, os, sys, json, csv, gzip, datetime, re
 import acc_keys
+from datetime import date as date_lib
 
 path = sys.path[0]
 
@@ -35,8 +36,10 @@ def month(m, y):
     if len(str(m))==2 and len(str(y))==4 and int(m)<13:
         if str(m) == '12':
             return str(y)+str(m)+'01-'+str(int(y)+1)+'0101'
-        else:
+        if m <= 8:
             return str(y)+str(m)+'01-'+str(y)+'0'+str(int(m)+1)+'01'
+        if m >= 9:
+            return str(y)+str(m)+'01-'+str(y)+str(int(m)+1)+'01'
     else:
         return "Invalid Date"
 
